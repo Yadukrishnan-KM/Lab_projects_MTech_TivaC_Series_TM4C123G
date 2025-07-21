@@ -1,0 +1,281 @@
+******************************************************************************
+                  TI ARM Linker PC v20.2.7                     
+******************************************************************************
+>> Linked Sat Nov 23 15:52:15 2024
+
+OUTPUT FILE NAME:   <zFinal_lab_Project_SDcard_logger.out>
+ENTRY POINT SYMBOL: "_c_int00_noargs"  address: 0000142d
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+  FLASH                 00000000   00040000  000014e6  0003eb1a  R  X
+  SRAM                  20000000   00008000  00000432  00007bce  RW X
+
+
+SEGMENT ALLOCATION MAP
+
+run origin  load origin   length   init length attrs members
+----------  ----------- ---------- ----------- ----- -------
+00000000    00000000    000014e8   000014e8    r-x
+  00000000    00000000    0000026c   0000026c    r-- .intvecs
+  0000026c    0000026c    00001232   00001232    r-x .text
+  000014a0    000014a0    00000048   00000048    r-- .cinit
+20000000    20000000    00000438   00000000    rw-
+  20000000    20000000    00000212   00000000    rw- .bss
+  20000218    20000218    00000200   00000000    rw- .stack
+  20000418    20000418    00000020   00000000    rw- .data
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.intvecs   0    00000000    0000026c     
+                  00000000    0000026c     tm4c123gh6pm_startup_ccs.obj (.intvecs)
+
+.text      0    0000026c    00001232     
+                  0000026c    00000a08     functions.obj (.text)
+                  00000c74    00000324     main.obj (.text)
+                  00000f98    000002a4     initialisation.obj (.text)
+                  0000123c    000000a8     interrupts.obj (.text)
+                  000012e4    0000009c     rtsv7M4_T_le_v4SPD16_eabi.lib : memcpy_t2.asm.obj (.text)
+                  00001380    00000068                                   : copy_decompress_lzss.c.obj (.text:decompress:lzss:__TI_decompress_lzss)
+                  000013e8    00000044                                   : autoinit.c.obj (.text:__TI_auto_init_nobinit_nopinit:__TI_auto_init_nobinit_nopinit)
+                  0000142c    00000034                                   : boot_cortex_m.c.obj (.text:_c_int00_noargs:_c_int00_noargs)
+                  00001460    0000001c                                   : copy_zero_init.c.obj (.text:decompress:ZI:__TI_zero_init_nomemset:__TI_zero_init_nomemset)
+                  0000147c    0000000e                                   : copy_decompress_none.c.obj (.text:decompress:none:__TI_decompress_none)
+                  0000148a    0000000c     tm4c123gh6pm_startup_ccs.obj (.text)
+                  00001496    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : pre_init.c.obj (.text:_system_pre_init)
+                  0000149a    00000004                                   : exit.c.obj (.text:abort:abort)
+
+.cinit     0    000014a0    00000048     
+                  000014a0    00000020     (.cinit..data.load) [load image, compression = lzss]
+                  000014c0    0000000c     (__TI_handler_table)
+                  000014cc    00000004     --HOLE-- [fill = 0]
+                  000014d0    00000008     (.cinit..bss.load) [load image, compression = zero_init]
+                  000014d8    00000010     (__TI_cinit_table)
+
+.init_array 
+*          0    00000000    00000000     UNINITIALIZED
+
+.bss       0    20000000    00000212     UNINITIALIZED
+                  20000000    00000200     (.common:data_Received)
+                  20000200    00000004     (.common:lba_begin_address)
+                  20000204    00000004     (.common:number_of_sectors)
+                  20000208    00000004     (.common:ocr)
+                  2000020c    00000004     (.common:ocr_register_4B)
+                  20000210    00000001     (.common:replay)
+                  20000211    00000001     (.common:response)
+
+.data      0    20000418    00000020     UNINITIALIZED
+                  20000418    00000011     functions.obj (.data:data_toWrite)
+                  20000429    00000002     interrupts.obj (.data)
+                  2000042b    00000001     --HOLE--
+                  2000042c    00000008     main.obj (.data)
+                  20000434    00000004     functions.obj (.data)
+
+.stack     0    20000218    00000200     UNINITIALIZED
+                  20000218    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : boot_cortex_m.c.obj (.stack)
+                  2000021c    000001fc     --HOLE--
+
+__llvm_prf_cnts 
+*          0    20000000    00000000     UNINITIALIZED
+
+MODULE SUMMARY
+
+       Module                         code   ro data   rw data
+       ------                         ----   -------   -------
+    .\
+       functions.obj                  2568   0         551    
+       main.obj                       804    0         8      
+       initialisation.obj             676    0         0      
+       tm4c123gh6pm_startup_ccs.obj   12     620       0      
+       interrupts.obj                 168    0         2      
+    +--+------------------------------+------+---------+---------+
+       Total:                         4228   620       561    
+                                                              
+    C:\ti\ccs1271\ccs\tools\compiler\ti-cgt-arm_20.2.7.LTS\lib\rtsv7M4_T_le_v4SPD16_eabi.lib
+       memcpy_t2.asm.obj              156    0         0      
+       copy_decompress_lzss.c.obj     104    0         0      
+       autoinit.c.obj                 68     0         0      
+       boot_cortex_m.c.obj            52     0         0      
+       copy_zero_init.c.obj           28     0         0      
+       copy_decompress_none.c.obj     14     0         0      
+       exit.c.obj                     4      0         0      
+       pre_init.c.obj                 4      0         0      
+    +--+------------------------------+------+---------+---------+
+       Total:                         430    0         0      
+                                                              
+       Stack:                         0      0         512    
+       Linker Generated:              0      68        0      
+    +--+------------------------------+------+---------+---------+
+       Grand Total:                   4658   688       1073   
+
+
+LINKER GENERATED COPY TABLES
+
+__TI_cinit_table @ 000014d8 records: 2, size/record: 8, table size: 16
+	.data: load addr=000014a0, load size=00000020 bytes, run addr=20000418, run size=00000020 bytes, compression=lzss
+	.bss: load addr=000014d0, load size=00000008 bytes, run addr=20000000, run size=00000212 bytes, compression=zero_init
+
+
+LINKER GENERATED HANDLER TABLE
+
+__TI_handler_table @ 000014c0 records: 3, size/record: 4, table size: 12
+	index: 0, handler: __TI_decompress_lzss
+	index: 1, handler: __TI_decompress_none
+	index: 2, handler: __TI_zero_init
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address   name                               
+-------   ----                               
+0000149b  C$$EXIT                            
+00000f99  GPIO_PortA_Initialisation          
+00000fe1  GPIO_PortB_Initialisation          
+00001029  GPIO_PortF_Initialisation          
+0000126f  GPIO_PortF_Interrupt_Handler       
+0000123d  GPIO_PortF_Interrupt_Initialisation
+0000092d  Receive_Datablock_1B               
+0000148b  ResetISR                           
+0000039d  SD_Card_Initialisation             
+000004e1  SD_Card_OCR_data                   
+00000351  SD_Initial_Clock_Pulses            
+000005b5  SD_Read_Sector                     
+000002cf  SD_Send                            
+000009cb  SD_Write_Block                     
+00000299  SPI2_Transmit                      
+00001071  SPI_0_Initialisation               
+000010c5  SPI_2_Initialisation               
+0000026d  SysTick_Delay_1mS                  
+00001293  SysTick_Initialisation             
+00001119  UART0_Initialisation               
+00000aed  UART0_Println                      
+00000ab3  UART0_WriteChar                    
+00000acf  UART0_WriteString                  
+20000418  __STACK_END                        
+00000200  __STACK_SIZE                       
+20000418  __STACK_TOP                        
+000014d8  __TI_CINIT_Base                    
+000014e8  __TI_CINIT_Limit                   
+000014c0  __TI_Handler_Table_Base            
+000014cc  __TI_Handler_Table_Limit           
+000013e9  __TI_auto_init_nobinit_nopinit     
+00001381  __TI_decompress_lzss               
+0000147d  __TI_decompress_none               
+ffffffff  __TI_pprof_out_hndl                
+ffffffff  __TI_prof_data_size                
+ffffffff  __TI_prof_data_start               
+00000000  __TI_static_base__                 
+00001461  __TI_zero_init_nomemset            
+000012e5  __aeabi_memcpy                     
+000012e5  __aeabi_memcpy4                    
+000012e5  __aeabi_memcpy8                    
+ffffffff  __binit__                          
+ffffffff  __c_args__                         
+UNDEFED   __mpu_init                         
+20000218  __stack                            
+20000000  __start___llvm_prf_cnts            
+20000000  __stop___llvm_prf_cnts             
+0000142d  _c_int00_noargs                    
+UNDEFED   _system_post_cinit                 
+00001497  _system_pre_init                   
+0000149b  abort                              
+ffffffff  binit                              
+20000000  data_Received                      
+20000418  data_toWrite                       
+00000000  g_pfnVectors                       
+20000434  intia_Status                       
+20000200  lba_begin_address                  
+00000c75  main                               
+000012e5  memcpy                             
+20000204  number_of_sectors                  
+20000208  ocr                                
+2000020c  ocr_register_4B                    
+20000430  option                             
+20000210  replay                             
+20000211  response                           
+2000042c  switchEnable                       
+20000429  switch_1                           
+2000042a  switch_2                           
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+address   name                               
+-------   ----                               
+00000000  __TI_static_base__                 
+00000000  g_pfnVectors                       
+00000200  __STACK_SIZE                       
+0000026d  SysTick_Delay_1mS                  
+00000299  SPI2_Transmit                      
+000002cf  SD_Send                            
+00000351  SD_Initial_Clock_Pulses            
+0000039d  SD_Card_Initialisation             
+000004e1  SD_Card_OCR_data                   
+000005b5  SD_Read_Sector                     
+0000092d  Receive_Datablock_1B               
+000009cb  SD_Write_Block                     
+00000ab3  UART0_WriteChar                    
+00000acf  UART0_WriteString                  
+00000aed  UART0_Println                      
+00000c75  main                               
+00000f99  GPIO_PortA_Initialisation          
+00000fe1  GPIO_PortB_Initialisation          
+00001029  GPIO_PortF_Initialisation          
+00001071  SPI_0_Initialisation               
+000010c5  SPI_2_Initialisation               
+00001119  UART0_Initialisation               
+0000123d  GPIO_PortF_Interrupt_Initialisation
+0000126f  GPIO_PortF_Interrupt_Handler       
+00001293  SysTick_Initialisation             
+000012e5  __aeabi_memcpy                     
+000012e5  __aeabi_memcpy4                    
+000012e5  __aeabi_memcpy8                    
+000012e5  memcpy                             
+00001381  __TI_decompress_lzss               
+000013e9  __TI_auto_init_nobinit_nopinit     
+0000142d  _c_int00_noargs                    
+00001461  __TI_zero_init_nomemset            
+0000147d  __TI_decompress_none               
+0000148b  ResetISR                           
+00001497  _system_pre_init                   
+0000149b  C$$EXIT                            
+0000149b  abort                              
+000014c0  __TI_Handler_Table_Base            
+000014cc  __TI_Handler_Table_Limit           
+000014d8  __TI_CINIT_Base                    
+000014e8  __TI_CINIT_Limit                   
+20000000  __start___llvm_prf_cnts            
+20000000  __stop___llvm_prf_cnts             
+20000000  data_Received                      
+20000200  lba_begin_address                  
+20000204  number_of_sectors                  
+20000208  ocr                                
+2000020c  ocr_register_4B                    
+20000210  replay                             
+20000211  response                           
+20000218  __stack                            
+20000418  __STACK_END                        
+20000418  __STACK_TOP                        
+20000418  data_toWrite                       
+20000429  switch_1                           
+2000042a  switch_2                           
+2000042c  switchEnable                       
+20000430  option                             
+20000434  intia_Status                       
+ffffffff  __TI_pprof_out_hndl                
+ffffffff  __TI_prof_data_size                
+ffffffff  __TI_prof_data_start               
+ffffffff  __binit__                          
+ffffffff  __c_args__                         
+ffffffff  binit                              
+UNDEFED   __mpu_init                         
+UNDEFED   _system_post_cinit                 
+
+[68 symbols]

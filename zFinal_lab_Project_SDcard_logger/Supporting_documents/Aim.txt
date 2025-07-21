@@ -1,0 +1,12 @@
+SD Card Datalogger
+
+Aim:To study about SD card data management and storing a string of data in a continious data locations,
+which can be used for data logging purpose. 
+
+Flow Chart:
+
+    Initialize clock and configure GPIO pins for SPI
+    Initialize SD Card and wait for successful response
+    After successful SD card detection, erase the SD card
+    Write a small string of data into the SD card in continious data location (not using any file format)
+    wait in idle condition
